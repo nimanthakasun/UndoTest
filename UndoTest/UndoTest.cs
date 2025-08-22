@@ -7,6 +7,7 @@ using System.Runtime.InteropServices;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using Microsoft.Office.Interop.Word;
+using Microsoft.Office.Tools.Word;
 using Office = Microsoft.Office.Core;
 using Word = Microsoft.Office.Interop.Word;
 
@@ -129,7 +130,19 @@ namespace UndoTest
 
         public void OnTableButton(Office.IRibbonControl control)
         {
+            Word.Range currentRange = Globals.ThisAddIn.Application.Selection.Range;
 
+            var application = Globals.ThisAddIn.Application;
+            var document = application.ActiveDocument;
+
+            this.undoRecord = application.UndoRecord;
+
+            this.undoRecord.StartCustomRecord("MyStyleRecord");
+            foreach (Word.Paragraph paragraph in document.Paragraphs)
+            {
+                paragraph.Range.set_Style(Microsoft.Office.Interop.Word.WdBuiltinStyle.wdStyleListParagraph);
+            }
+            this.undoRecord.EndCustomRecord();
         }
 
         #endregion
