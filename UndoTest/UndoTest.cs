@@ -89,41 +89,6 @@ namespace UndoTest
                 paragraph.Range.set_Style(Microsoft.Office.Interop.Word.WdBuiltinStyle.wdStyleEmphasis);
             }
 
-            //WdListType listType = WdListType.wdListNoNumbering;
-            //int listLevelNumber = 1;
-
-            //listType = document.Paragraphs[0].Range.ListFormat.ListType;
-            //switch (listType)
-            //{
-            //    case WdListType.wdListBullet:
-            //    case WdListType.wdListPictureBullet:
-            //        document.Paragraphs[0].Range.ListFormat.ApplyBulletDefault(
-            //        DefaultListBehavior: Word.WdDefaultListBehavior.wdWord10ListBehavior
-            //        );
-            //        break;
-
-            //    case WdListType.wdListSimpleNumbering:
-            //        document.Paragraphs[0].Range.ListFormat.ApplyNumberDefault(
-            //        DefaultListBehavior: Word.WdDefaultListBehavior.wdWord10ListBehavior
-            //        );
-            //        break;
-
-            //    case WdListType.wdListOutlineNumbering:
-            //        document.Paragraphs[0].Range.ListFormat.ApplyOutlineNumberDefault(
-            //        DefaultListBehavior: Word.WdDefaultListBehavior.wdWord10ListBehavior
-            //        );
-            //        break;
-
-            //    case WdListType.wdListMixedNumbering:
-            //        document.Paragraphs[0].Range.ListFormat.ApplyListTemplateWithLevel(
-            //        document.Paragraphs[0].Range.ListFormat.ListTemplate,
-            //        ContinuePreviousList: true,
-            //        ApplyTo: Word.WdListApplyTo.wdListApplyToSelection
-            //        );
-            //        break;
-            //}
-            //document.Paragraphs[0].Range.ListFormat.ListLevelNumber = listLevelNumber;
-
             this.undoRecord.EndCustomRecord();
 
         }
